@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "culpip"
+authors=[{name= "Agata Skamruk", email = "agata.skamruk@gmail.com"}]
+version = "0.0.1"
+description = "Find which dependency update broke your tests: bisects requirements.txt and uv.lock changes."
+keywords = ["dependencies", "bisect", "delta-debugging", "uv", "requirements", "regression"]
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = ["tomli>=2.0; python_version < '3.11'"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.scripts]
+culpip = "culpip.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/culpip"]
+[project.urls]
+Repository = "https://github.com/yorkshre/culpip"
